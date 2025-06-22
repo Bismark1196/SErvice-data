@@ -1,7 +1,9 @@
+@import "react-toastify/dist/ReactToastify.css";
+
 #root {
-  max-width: 1300px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -39,4 +41,27 @@
 
 .read-the-docs {
   color: #888;
+}
+.video-section {
+  position: relative;
+  overflow: hidden;
+  color: white; /* Ensures text remains readable */
+  z-index: 0;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+.video-section .intro,
+.video-section .benefits {
+  position: relative;
+  z-index: 1;
 }
