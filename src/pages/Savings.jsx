@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Savings.css";
-import { Helmet } from "react-helmet-async";
 
 const Savings = () => {
   const navigate = useNavigate();

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Eligibility.css";
 import loadGif from "../assets/process.gif";
-import { Helmet } from "react-helmet-async";
 
 
 const Eligibilitycheck = () => {

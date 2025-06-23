@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // ✅ Needed for programmatic navigation
 import "../styles/Login.css";
-import { Helmet } from "react-helmet-async"
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

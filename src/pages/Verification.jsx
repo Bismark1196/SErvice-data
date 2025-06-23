@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Verification.css";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 const Verification = () => {
   const [limit, setLimit] = useState(7000);

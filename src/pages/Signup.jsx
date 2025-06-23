@@ -4,7 +4,6 @@ import "../styles/Signup.css";
 import "../styles/shared.css";
 import "../styles/main.css";
 import "toastify-js/src/toastify.css";
-import { Helmet } from "react-helmet-async";
 
 const Signup = ({ showToast }) => {
   const navigate = useNavigate();
