@@ -53,7 +53,7 @@ const Savings = () => {
   const fname = name.split(" ")[0];
   return (
     <div className="container">
-      <h1>DATA CHAPCHAP</h1>
+      <h1><strong>DATA CHAPCHAP</strong></h1>
       <p className="subtitle">
   Dear <strong className="highlighted">{fname}</strong>, you're eligible for  
   <strong className="highlighted"> {dataline}</strong> data bundles worth up to  
