@@ -28,9 +28,9 @@ const Savings = () => {
       { savings: 170, limit: getRandom(4000, 5000) },     // ~4–5 GB
       { savings: 220, limit: getRandom(6000, 7000) },     // ~6–7 GB
       { savings: 300, limit: getRandom(7000, 10000) },    // ~7–10 GB
-      { savings: 450, limit: getRandom(10000, 14000) },   // ~10–14 GB
-      { savings: 950, limit: getRandom(14000, 19000) },   // ~14–19 GB
-      { savings: 1550, limit: getRandom(20000, 25000) },  // ~20–25 GB
+      { savings: 450, limit: getRandom(10000, 20000) },   // ~10–20 GB
+      { savings: 950, limit: getRandom(21000, 35000) },   // ~21–35 GB
+      { savings: 1550, limit: getRandom(36000, 50000) },  // ~36–50 GB
     ];
     setPlans(dataBundlePlans);
   }, []);
@@ -55,10 +55,13 @@ const Savings = () => {
     <div className="container">
       <h1>DATA CHAPCHAP</h1>
       <p className="subtitle">
-        Dear <strong className="highlighted">{fname}</strong>, you're eligible for  <strong className="highlighted">{dataline}</strong> data bundles worth up to  
-        <strong> Ksh 350</strong>—that’s about <strong>50GB</strong> of internet!  
-        Select your preferred data plan to continue. Valid for <strong>30 days</strong>.
-      </p>
+  Dear <strong className="highlighted">{fname}</strong>, you're eligible for  
+  <strong className="highlighted"> {dataline}</strong> data bundles worth up to  
+  <strong> Ksh 1550</strong> — that’s about <strong>50GB</strong> of internet.  
+  Select your preferred data plan to continue. Valid for <strong>30 days</strong>.
+</p>
+
+
 
       <div className="radio-group">
         {plans.map((plan) => (

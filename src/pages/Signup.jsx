@@ -19,8 +19,7 @@ const Signup = ({ showToast }) => {
   const [dob, setDob] = useState("");
   const [county, setCounty] = useState("");
 
-
-
+  
   
 
   const handleSignup = (e) => {
@@ -178,20 +177,25 @@ localStorage.setItem("dataUsage", dataUsage);
               <option value="nairobi">Nairobi</option>
             </select>
 
-            <select
+           <select
   id="dataLine"
   value={dataLine}
-  onChange={(e) => setDataLine(e.target.value)}
+  onChange={(e) => {
+    const selectedLine = e.target.value;
+    setDataLine(selectedLine);
+    localStorage.setItem("dataline", selectedLine); // ✅ Save for reuse
+  }}
   required
 >
-  <option value="" disabled>
-    Select your Data Line Provider
+  <option value="" disabled hidden>
+    -- Choose Provider --
   </option>
   <option value="Safaricom">Safaricom</option>
   <option value="Airtel">Airtel</option>
   <option value="Telkom">Telkom</option>
   <option value="Faiba">Faiba</option>
 </select>
+
             <input
               type="tel"
               id="mpesas"

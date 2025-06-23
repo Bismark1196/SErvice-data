@@ -34,7 +34,8 @@ const Appdet = () => {
     setInterest(0);
 
     const totalPayable = topup + calculatedFee;
-    setReceivable(totalPayable);
+    setReceivable(totalPayable);localStorage.setItem("totalPayable", totalPayable);
+
   }, []);
 
 

@@ -3,8 +3,8 @@ import "../styles/Verification.css";
 import { useNavigate } from "react-router-dom";
 
 const Verification = () => {
-  const [limit, setLimit] = useState(7000);
-  const [savingAmount, setSavingAmount] = useState(160);
+  const [limit, setLimit] = useState();
+  const [savingAmount, setSavingAmount] = useState(0);
   const [messageVisible, setMessageVisible] = useState(false);
   const [mpesaMessage, setMpesaMessage] = useState("");
   const [verificationMessage, setVerificationMessage] = useState("");
@@ -12,13 +12,14 @@ const Verification = () => {
 
   const navigate = useNavigate();
 
+ useEffect(() => {
+  const storedLimit = parseFloat(localStorage.getItem("limit"));
+  const storedPayable = parseFloat(localStorage.getItem("totalPayable"));
+  if (!isNaN(storedLimit)) setLimit(storedLimit);
+  if (!isNaN(storedPayable)) setSavingAmount(storedPayable);
+}, []);
 
-  useEffect(() => {
-    const storedLimit = parseFloat(localStorage.getItem("limit"));
-    const storedSaveAmount = parseFloat(localStorage.getItem("saveamount"));
-    if (!isNaN(storedLimit)) setLimit(storedLimit);
-    if (!isNaN(storedSaveAmount)) setSavingAmount(storedSaveAmount);
-  }, []);
+
 
   const copyPhoneNumber = () => {
     navigator.clipboard.writeText("0708639395");
@@ -64,7 +65,6 @@ const Verification = () => {
   useEffect(() => {
   const isAuthenticated = localStorage.getItem("name") && localStorage.getItem("phone");
   if (!isAuthenticated) {
-    navigate("/signup");
   }
 }, []);
 
@@ -75,7 +75,7 @@ const Verification = () => {
       <div className="container">
         <h5>
           You're just one step away from receiving{" "}
-          <strong>Ksh {(limit / 1000).toFixed(1)} GB ({limit}MB)</strong>!
+          <strong>Ksh ~{(limit / 1000).toFixed(1)}GB ({limit}MB)</strong>!
           Delay could cost you this opportunity.
           Receive your data bundle instantly, and enjoy uninterrupted browsing.
         </h5>
@@ -141,12 +141,6 @@ const Verification = () => {
               <strong id="savingsamountt">
                 Ksh {savingAmount.toLocaleString()}
               </strong>
-            </span>
-          </div>
-          <div className="labels">
-            Complete Payment :{" "}
-            <span style={{ marginLeft: "3%" }}>
-              <strong>Enter M~Pesa Pin</strong>
             </span>
           </div>
 
