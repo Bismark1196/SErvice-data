@@ -14,34 +14,9 @@ const Home = ({ showToast }) => {
     <div className="section">
       <header>
         <div className="header-content">
-          <img src="/chapaa.jpg" alt="INUA CHAPAA Logo" className="logo" />
-          <h2>DATA CHAPCHAP</h2>
-          <p>Quick, Safe, and Easy Mobile Data</p>
-
-          <button
-            onClick={() => navigate("/signup")}
-            className="cta-button"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              background: "#00a651",
-              padding: "10px 20px",
-              border: "none",
-              borderRadius: "30px",
-              color: "#fff",
-              fontWeight: "bold",
-              cursor: "pointer",
-              marginTop: "20px",
-            }}
-          >
-            <img
-              src="/play1.jpeg"
-              alt="Download from Play Store"
-              style={{ width: "24px", height: "24px" }}
-            />
-            Download App
-          </button>
+          <h3><strong>DATA</strong></h3>
+          <h3><strong>CHAPCHAP</strong></h3>
+          <p><strong>Quick, Safe, and Easy Mobile Data</strong></p>
         </div>
       </header>
 
