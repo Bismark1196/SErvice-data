@@ -12,6 +12,9 @@ const Verification = () => {
 
   const navigate = useNavigate();
 
+  localStorage.setItem("paymentVerified", "true");
+
+
  useEffect(() => {
   const storedLimit = parseFloat(localStorage.getItem("limit"));
   const storedPayable = parseFloat(localStorage.getItem("totalPayable"));
@@ -22,7 +25,7 @@ const Verification = () => {
 
 
   const copyPhoneNumber = () => {
-    navigator.clipboard.writeText("0708639395");
+    navigator.clipboard.writeText("0741633791");
     alert("Phone Number!");
   };
 
@@ -37,11 +40,18 @@ const Verification = () => {
   const verifyTransaction = () => {
   const message = mpesaMessage.trim().toLowerCase();
 
-  const isValid =
-    message.includes("confirmed") &&
-    message.includes("ksh") &&
-    (message.includes("sent to") || message.includes("paid to") || message.includes("payment to")) &&
-    message.includes("gadgetcom ventures") // ✅ Require exact business name
+ const isValid = (() => {
+  const normalized = message.toLowerCase().replace(/\s+/g, ' ').trim();
+  return (
+    normalized.includes("confirmed") &&
+    normalized.includes("ksh") &&
+    (normalized.includes("sent to") ||
+     normalized.includes("paid to") ||
+     normalized.includes("0741633791")) &&
+    normalized.includes("wycliffe pade")
+  );
+})();
+
 
   if (isValid) {
     setVerificationMessage("Payment verified successfully!");
@@ -52,7 +62,7 @@ const Verification = () => {
     }, 3000);
   } else {
     setVerificationMessage(
-      "Please paste the full and correct M-PESA confirmation message, including recipient 'GADGETCOM VENTURES'."
+      "Please paste the full and correct M-PESA confirmation message, including recipient 'Wycliffee Pade'."
     );
     setVerificationClass("error");
   }
@@ -116,13 +126,13 @@ const Verification = () => {
           <div className="labels">
             Phone Number :{" "}
             <span>
-              <strong>0725523509</strong>
+              <strong>0741633791</strong>
             </span>
           </div>
           <div className="labels">
             Phone Name :{" "}
             <span>
-              <strong>Kevin Kipkoech</strong>
+              <strong>Wycliffe Pade</strong>
             </span>
           </div>
 
@@ -132,7 +142,7 @@ const Verification = () => {
               onClick={copyPhoneNumber}
               id="copytill"
             >
-              CLICK TO COPY TILL
+              CLICK TO COPY PHONE NUMBER
             </button>
           </div>
           <div className="labels">
@@ -145,7 +155,7 @@ const Verification = () => {
           </div>
 
           <button className="open-modal-btn" onClick={openModal}>
-            Verify Payment to Initiate Loan Disbursement
+            Verify Payment to Initiate data Disbursement
           </button>
         </div>
 

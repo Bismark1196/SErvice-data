@@ -256,3 +256,43 @@ h1 {
     font-size: 0.95rem;
   }
 }
+
+.status-confirmed {
+  color: green;
+  font-weight: bold;
+}
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-confirmed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.refresh-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.refresh-btn:hover {
+  background: #003f88;
+}
+
+.review-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
